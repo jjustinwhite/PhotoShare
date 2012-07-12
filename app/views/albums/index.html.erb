@@ -1,0 +1,46 @@
+<%= stylesheet_link_tag "albums" %>
+
+<div class="container"><!--container header/hero -->
+  <div class="hero-unit">
+		<h1>PhotoShare<small> Share Photos with Ease</small></h1>
+		<p>Store your photos, share your life. Create photo albums and choose who you want to share with.</p>
+	</div>
+</div>
+
+
+
+<div class="container">
+  <div class ="container-fluid"><!--container body-->
+    <h2>My albums</h2><br />
+    <div class="row-fluid">
+      <div class="span2 well" id="thumb">
+        <br /><%= image_tag("add.png", :alt => "img add") %>
+        <p><%= link_to "Add New Album", new_album_path %></p>
+      </div>
+      
+      <div class="span10">
+        <% @albums.each do |album| %>
+            <!-- create thumbnails for each album -->
+            <ul class="thumbnails">
+              <li class="span3" id="thumb">
+                <div class="thumbnail well" id="thumb">
+                  <!-- <img src="http://placehold.it/400x300"> -->
+                  <%= display_image album %>
+                  <h5><%= link_to album.name, album %></h5>
+                  <p><small><%= album.description %></small></p>
+                  <!-- drop down -->
+                  <div class="btn-group pull-right">
+                    <br /><a class="btn btn-mini btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Actions<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><%= link_to 'Show', album %></li>
+                        <li><%= link_to 'Edit', edit_album_path(album) %></li>
+                        <li><%= link_to 'Destroy', album, confirm: 'Are you sure?', method: :delete %></li>
+                      </ul>
+                  </div>  
+                </div>
+              </li>
+            </ul>
+      <% end %>
+      </div><!-- span 10-->
+  </div>
+</div><!--END container body -->
