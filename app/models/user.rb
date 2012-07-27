@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password_digest
+  attr_accessible :email, :password_digest, :user_id
   has_many :albums
   has_secure_password
   validates :email, :password, :presence => true
