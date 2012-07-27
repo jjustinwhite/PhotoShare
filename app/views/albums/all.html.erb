@@ -3,14 +3,12 @@
 <table class="table">
   <tr>
     <th>Name</th>
-    <th>Username</th>
     <th>User ID</th>
   </tr>
 
 <% @albums.each do |album| %>
   <tr>
     <td><%= album.name %></td>
-    <td> <%= album.user.email %> </td>
     <td> <%= album.user_id %></td>
     <td><%= link_to 'Show', album %></td>
     <td><%= link_to 'Edit', edit_album_path(album) %></td>
