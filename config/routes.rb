@@ -1,4 +1,5 @@
 Photoshare::Application.routes.draw do
+
   get "welcome/index"
 
   get "session/sign_in"
@@ -18,6 +19,8 @@ Photoshare::Application.routes.draw do
   root :to => 'Users#new'
   
   get '/albums/:id/' => 'Albums#show', :as => 'album'
+  
+  get '/all_albums/' => 'Albums#all'
   
   get "users/sign_in"
   

@@ -5,7 +5,7 @@
     <th>Email</th>
     <th>Password digest</th>
     <th>Level</th>
-    <th></th>
+    <th>ID</th>
     <th></th>
   </tr>
 
@@ -14,6 +14,7 @@
     <td><%= user.email %></td>
     <td><%= user.password_digest %></td>
     <td><%= user.level %></td>
+    <td><%= user.id %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>

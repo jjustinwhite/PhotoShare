@@ -28,6 +28,7 @@
     <br /><%= f.label :extension %>
     <%= f.select :extension, [["JPEG", ".jpeg"], ["JPG", ".jpg"], ["PNG", ".png"], ["GIF", ".gif"]] %>
   </div><br/>
+  <%= f.hidden_field :user_id, :value => session[:user_id] %>
   <div class="actions">
     <button type="submit" class="btn">Submit</button>
   </div>

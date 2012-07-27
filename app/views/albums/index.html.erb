@@ -22,6 +22,7 @@
       
       <div class="span10">
         <% @albums.each do |album| %>
+          <% if album.user_id == session[:user_id]%>
             <!-- create thumbnails for each album -->
             <ul class="thumbnails">
               <li class="span3" id="thumb">
@@ -29,7 +30,7 @@
                   <!-- <img src="http://placehold.it/400x300"> -->
                   <%= display_image album %>
                   <h5><%= link_to album.name, album %></h5>
-                  <p><small><%= album.description %></small></p>
+                  <p><small><%= album.description%></small></p>
                   <!-- drop down -->
                   <div class="btn-group pull-right">
                     <br /><a class="btn btn-mini btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Actions<span class="caret"></span></a>
@@ -42,6 +43,7 @@
                 </div><!-- END DROP DOWN -->
               </li>
             </ul>
+            <% end %>
       <% end %>
       </div><!-- span 10-->
   </div>

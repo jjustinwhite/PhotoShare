@@ -5,7 +5,7 @@ class SessionController < ApplicationController
       user = User.find_by_email(entered_email)
       if user && user.authenticate(params[:entered_password]) then 
         session[:user_id] = user.id
-        redirect_to root_path
+        redirect_to '/albums'
       else
         redirect_to session_sign_in_path, :alert => 'That email address and password are not recognized.'
       end

@@ -1,8 +1,19 @@
 class AlbumsController < ApplicationController
-  before_filter :check_that_user_signed_in 
+  before_filter :check_that_user_signed_in
+  before_filter :check_that_user_is_administrator,
+    :only => [:all] 
   # GET /albums
   # GET /albums.json
   def index
+    @albums = Album.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @albums }
+    end
+  end
+  
+  def all
     @albums = Album.all
 
     respond_to do |format|
