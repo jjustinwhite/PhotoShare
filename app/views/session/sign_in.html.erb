@@ -1,0 +1,14 @@
+<h1>Sign-in Form</h1>
+<%= form_tag :action => 'sign_in' do %>
+
+<p>Your email: <%= text_field_tag :entered_email %></p>
+
+<p>Password: <%= password_field_tag :entered_password %>
+
+<%= submit_tag 'Sign in' %>
+
+<% end %>
+
+<p><%= link_to "Create a new account", new_user_path %></p>
+
+<p id="alert"><%= alert %></p>

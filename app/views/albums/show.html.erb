@@ -1,26 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @album.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @album.description %>
-</p>
-
-<p>
-  <b>Extension:</b>
-  <%= @album.extension %>
-</p>
-
-<p>
-  <b>Image:</b>
-  <%= display_image @album %>
-</p>
+<div class="container">
   
-
-
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+  <div class="row">
+    <div class="span11 well" id="banner">
+      <h1><%= @album.name %></h1>
+      <%= display_image @album %>
+    </div><!--span-->
+  </div><!--row-->
+  
+  <div class="row">
+    <div class="span11 well">
+      <h3><%= link_to "Add Pictures to album", new_photo_path %></h3>
+    </div><!--span-->
+  </div><!--row-->  
+    
+  
+</div><!--container-->

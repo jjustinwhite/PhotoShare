@@ -10,24 +10,26 @@
       </ul>
     </div>
   <% end %>
+  
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
-  </div>
+  </div><br/>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_field :description %>
-  </div>
+  </div><br/>
   <div>
     <%= f.label :image %>
     <%= f.file_field :image %>
   </div>
   <div class="field">
-    <br /><%= f.label :extension %><br />
-    <%= f.text_field :extension %>
-  </div>
+    <br /><%= f.label :extension %>
+    <%= f.select :extension, [["JPEG", ".jpeg"], ["JPG", ".jpg"], ["PNG", ".png"], ["GIF", ".gif"]] %>
+  </div><br/>
   <div class="actions">
     <button type="submit" class="btn">Submit</button>
   </div>
+
 <% end %>

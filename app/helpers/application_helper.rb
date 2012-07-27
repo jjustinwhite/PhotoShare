@@ -1,11 +1,10 @@
 module ApplicationHelper
-#===START===Image Helper============================================  
-  def display_image(item)
-    if item.has_image?
-      image_tag item.image_path
-    else
-       "No image."
-    end
+
+#Display user email  
+  def display_email(user_id)
+    user = User.find(user_id)
+    if user then user.email else "Unknown" end
   end
-#===END===Image Helper============================================  
+  
+  
 end

@@ -13,9 +13,11 @@
   <div class ="container-fluid"><!--container body-->
     <h2>My albums</h2><br />
     <div class="row-fluid">
-      <div class="span2 well" id="thumb">
-        <br /><%= image_tag("add.png", :alt => "img add") %>
-        <p><%= link_to "Add New Album", new_album_path %></p>
+      <div class="span2" id="thumb">
+        <div class="thumbnail well">
+        <br /><%= link_to image_tag("add.png", :alt => "img add"), new_album_path %><br/>
+        <p><%= link_to "Add New Album", new_album_path %></p><br/>
+        </div>
       </div>
       
       <div class="span10">
@@ -37,7 +39,7 @@
                         <li><%= link_to 'Destroy', album, confirm: 'Are you sure?', method: :delete %></li>
                       </ul>
                   </div>  
-                </div>
+                </div><!-- END DROP DOWN -->
               </li>
             </ul>
       <% end %>

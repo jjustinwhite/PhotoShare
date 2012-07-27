@@ -18,29 +18,36 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">PhotoShare</a>
+          <a class="brand" href="/">PhotoShare</a>
           <div class="btn-group pull-right">
+            <% if not session[:user_id].nil? then %>
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="icon-user"></i> Username
+              <i class="icon-user"></i> <%= display_email(session[:user_id]) %>
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
               <li><a href="#">Profile</a></li>
               <li class="divider"></li>
-              <li><a href="#">Sign Out</a></li>
+              <li><%= link_to 'Sign out', session_sign_out_path %></li>
             </ul>
+            <% else %>
+            <a class="btn" href="/session/sign_in">
+              <i class="icon-user"></i> Sign In
+            </a>
+            <% end %>
           </div>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="#">Home</a></li>
-              <li class="active"><a href="#about">Albums</a></li>
-              <li><a href="#contact">Events</a></li>
+              <li><a href="/">Home</a></li>
+              <li class="active"><a href="/albums">Albums</a></li>
+              <li><a href="/photos">Photos</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 <!-- end NAVBAR -->
+
 
 <%= yield %>
 

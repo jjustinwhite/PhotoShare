@@ -1,0 +1,52 @@
+<div class="container"><!--container header/hero -->
+  <div class="hero-unit">
+		<h1>PhotoShare<small> Share Photos with Ease</small></h1>
+		<p>Store your photos, share your life. Create photo albums and choose who you want to share with.</p>
+	</div>
+	
+  <div class="row">
+    <% if not session[:user_id].nil? then %>
+      <div class="span12">
+        <h1>Hello, <%= display_email(session[:user_id]) %> </h1>
+      </div>
+    <% else %>
+      <div class="span5 well">
+        <h1>Sign In</h1><br />
+          <%= form_tag :action => 'sign_in' do %>
+            <p><%= text_field_tag :entered_email, nil, :placeholder => "email address" %></p>
+            <p><%= password_field_tag :entered_password, nil, :placeholder => "password" %></p>
+            <%= submit_tag 'Sign in' %>
+          <% end %>
+          <p id="alert"><%= alert %></p>
+      </div>
+      
+      <div class="span6 well">
+        <h1>Sign Up</h1>
+          <%= form_for(@user) do |f| %>
+            <% if @user.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+                <ul>
+                  <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="field">
+              <%= f.text_field :email, :placeholder => "email address"  %>
+            </div>
+            <div class="field">
+              <%= f.password_field :password, :placeholder => "password"  %>
+            </div>
+            <div class="field">
+              <%= f.password_field :password_confirmation, :placeholder => "password confirmation" %>
+            </div>
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+          <% end %>
+    <% end %>
+</div><!-- Span -->
+</div><!-- Row -->
+</div><!-- Container -->
