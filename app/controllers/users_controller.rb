@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+  before_filter :check_that_user_is_administrator,
+    :except => [:new, :create]
   def sign_in
     entered_email = params[:entered_email]
     if not entered_email.nil? then
