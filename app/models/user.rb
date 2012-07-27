@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :password_digest
-  has_many :albums, :through => :joins
-  has_many :joins
-  
+  has_many :albums
   has_secure_password
   validates :email, :password, :presence => true
   validates :email, :uniqueness => true

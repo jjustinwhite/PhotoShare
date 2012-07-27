@@ -1,5 +1,5 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :extension, :name, :image
+    attr_accessible :extension, :name, :image
   
   #===START===Image Store===========================================
     after_save :store_image
