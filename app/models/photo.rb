@@ -10,7 +10,7 @@ class Photo < ActiveRecord::Base
           :medium => "200x200",
           :large => "600x400"
         },
-        :s3_credentials => { :access_key_id => ENV['AWS_ACCESS_KEY_ID'], :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']},
+        :s3_credentials => { :access_key_id => ENV['AWS_ACCESS_KEY_ID'], :secret_access_key => ENV['AWS_SECRET_ACCES_KEY'], :bucket => "PhotoShare-jw"},
         :storage => :s3,
         :path => ":attachment/:id/:style.:extension",
         :bucket => 'PhotoShare-jw'
