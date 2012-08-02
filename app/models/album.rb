@@ -1,6 +1,7 @@
 class Album < ActiveRecord::Base
   attr_accessible :description, :extension, :name, :image, :user_id
   belongs_to :user
+  has_many :photos
 
   
 #===START===Image Store===========================================

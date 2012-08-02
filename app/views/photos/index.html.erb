@@ -13,7 +13,7 @@
   <tr>
     <td><%= photo.name %></td>
     <td><%= photo.extension %></td>
-    <td> <%= display_image photo %></td>
+    <td><%= image_tag photo.image.url(:medium) %></td>
     <td><%= link_to 'Show', photo %></td>
     <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
     <td><%= link_to 'Destroy', photo, confirm: 'Are you sure?', method: :delete %></td>
